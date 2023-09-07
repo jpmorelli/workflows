@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 
 # on: [push]
 on:
-  workflow_dispatch:
+  workflow_dispatch
 
 jobs:
   check-bats-version:
