@@ -1,7 +1,7 @@
 name: PR auto-generator
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
   push:
     branches-ignore: main
 
