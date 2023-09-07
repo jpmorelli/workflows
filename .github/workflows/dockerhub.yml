@@ -1,0 +1,30 @@
+name: Build and push to docker
+
+variables:
+    IMAGE_NAME: jpmorelli/awesomecicd
+    IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+
+stages:          # List of stages for jobs, and their order of execution
+  - test
+  - build
+
+run-tests:
+  stage: test
+  script:
+    - echo "The job's stage is '$CI_JOB_STAGE'"
+
+build-image:
+  stage: build
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  stage: build
+  before_script:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  script:
+    - echo "The job's stage is '$CI_JOB_STAGE'"
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+    - docker push $IMAGE_NAME:$IMAGE_TAG
+
