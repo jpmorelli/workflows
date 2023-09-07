@@ -34,4 +34,4 @@ jobs:
           IMAGE_NAME: jpmorelli/awesomecicd
         with:
           push: true
-          tags: ${{env.IMAGE_NAME}}:${env.SHORT_SHA}
+          tags: ${{env.IMAGE_NAME}}: ${{ env.SHORT_SHA }}
