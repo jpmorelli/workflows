@@ -2,6 +2,13 @@ name: PR auto-generator
 
 on:
   workflow_dispatch:
+    inputs:
+      from_branch:
+        description: Base branch
+        type: string
+      to_branch:
+        description: Destination branch
+        type: string
   push:
     branches-ignore: main
 
@@ -15,11 +22,11 @@ jobs:
       - name: Derive from branch name
         run: |
             # do custom parsing of your code / date to derive a branch from
-            PR_BRANCH_FROM=main
+            PR_BRANCH_FROM = ${ inputs.from_branch }
             echo "PULL_REQUEST_FROM_BRANCH=${PR_BRANCH_FROM}" >> $GITHUB_ENV
       
       - name: pull-request-action
         uses: vsoch/pull-request-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PULL_REQUEST_BRANCH: "main"
+          PULL_REQUEST_BRANCH: ${ inputs.to_branch }
