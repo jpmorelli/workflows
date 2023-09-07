@@ -1,4 +1,4 @@
-
+name: Simple workflow
 # on: [push]
 on:
   workflow_dispatch
