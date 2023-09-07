@@ -1,7 +1,7 @@
 name: cache-dependencies
 
 # on: [push]
-on: workflow_distpatch
+on: workflow_dispatch
 
 jobs:
   example-job:
