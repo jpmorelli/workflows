@@ -1,3 +1,5 @@
+name: Just to say hello
+
 on:
   workflow_dispatch:
     inputs:
