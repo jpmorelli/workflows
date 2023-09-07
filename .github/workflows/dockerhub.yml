@@ -4,8 +4,8 @@ name: Build and push to docker
 on:
   workflow_dispatch:
     inputs:
-      tag_input:
-        description: Version input
+      IMAGE_TAG:
+        description: Version TAG input
         type: string
 
 jobs:
@@ -34,4 +34,4 @@ jobs:
           IMAGE_NAME: jpmorelli/awesomecicd
         with:
           push: true
-          tags: ${{env.IMAGE_NAME}}: ${{ env.SHORT_SHA }}
+          tags: ${{env.IMAGE_NAME}}:${{ inputs.IMAGE_TAG }}
