@@ -2,7 +2,11 @@
 name: Build and push to docker
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      tag_input:
+        description: Version input
+        type: string
 
 jobs:
   docker:
@@ -26,4 +30,4 @@ jobs:
           IMAGE_NAME: jpmorelli/awesomecicd
         with:
           push: true
-          tags: "${{ env.IMAGE_NAME}}:${{ env.GITHUB_SHA }}"
+          tags: "'${{ env.IMAGE_NAME}}':'${{GITHUB_SHA}}'"
