@@ -15,7 +15,7 @@ jobs:
       - name: Derive from branch name
         run: |
             # do custom parsing of your code / date to derive a branch from
-            PR_BRANCH_FROM=develop
+            PR_BRANCH_FROM=main
             echo "PULL_REQUEST_FROM_BRANCH=${PR_BRANCH_FROM}" >> $GITHUB_ENV
       
       - name: pull-request-action
