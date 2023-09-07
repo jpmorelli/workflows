@@ -34,4 +34,4 @@ jobs:
           IMAGE_NAME: jpmorelli/awesomecicd
         with:
           push: true
-          tags: ${{env.IMAGE_NAME}}:${{ inputs.IMAGE_TAG }}
+          tags: ${{env.IMAGE_NAME}}:${{ inputs.IMAGE_TAG }},${{env.IMAGE_NAME}}:latest
