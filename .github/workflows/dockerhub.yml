@@ -24,7 +24,7 @@ jobs:
         uses: docker/build-push-action@v4
         env:
           IMAGE_NAME: jpmorelli/awesomecicd
-          IMAGE_TAG: $GITHUB_SHA
+          IMAGE_TAG: env.GITHUB_SHA
         with:
           push: true
           tags: "${{ env.IMAGE_NAME}}:${{ env.IMAGE_TAG }}"
