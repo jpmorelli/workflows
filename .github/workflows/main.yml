@@ -1,8 +1,6 @@
 name: Simple workflow
 
-on:
-    push
-    workflow_dispatch
+on: [push, workflow_dispatch]
 
 jobs:
   hello_world_job:
